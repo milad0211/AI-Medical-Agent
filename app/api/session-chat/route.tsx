@@ -19,8 +19,10 @@ export async function POST(req: NextRequest) {
         selectedDoctor: selectedDoctor,
         createdOn: new Date().toDateString(),
       })
-      .returning({ SessionChatTable });
-    return NextResponse.json(result[0]?.SessionChatTable);
+      // .returning({ SessionChatTable });
+      .returning();
+    // return NextResponse.json(result[0]?.SessionChatTable);
+    return NextResponse.json(result[0]);
   } catch (e) {
     return NextResponse.json(e);
   }
